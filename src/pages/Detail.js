@@ -9,10 +9,11 @@ import '../styles/Detail.css';
 const Detail = () => {
   // React Router'daki dinamik URL kısmını almalıyız (useParams)
   const { showDetail, selectedMovie } = useContext(MovieContext);
+  const { id } = useParams()
   useEffect(() => {
-    showDetail('tt1201607'); // useParams ile alınan film id'sini kullanınız. 
+    showDetail(id); // useParams ile alınan film id'sini kullanınız. 
   }, []);
-
+  console.log(selectedMovie)
   return (
     <div className='detail-container'>
       <div className='poster'>
@@ -47,6 +48,7 @@ const Detail = () => {
           <div className='label'>Director</div>
           <div>{selectedMovie.Director}</div>
         </div>
+        
       </div>
     </div>
   );
